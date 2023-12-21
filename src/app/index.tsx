@@ -1,29 +1,13 @@
-import { useEffect } from "react";
-import { ActivityIndicator, FlatList, StyleSheet, View } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { FlatList, StyleSheet, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
-import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
-import { DayListItem } from "./src/components/core/DayListItem";
+import { StatusBar } from "expo-status-bar";
+import { DayListItem } from "../components/core/DayListItem";
 
 SplashScreen.preventAutoHideAsync();
 
 const days = [...Array(24)].map((_, index) => index + 1);
 
-export default function App() {
-  const [fontsLoaded, fontError] = useFonts({
-    Inter: Inter_900Black,
-  });
-
-  useEffect(() => {
-    if (fontsLoaded || fontError) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, fontError]);
-
-  if (!fontsLoaded && !fontError) {
-    return <ActivityIndicator />;
-  }
-
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <FlatList
