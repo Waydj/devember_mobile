@@ -18,7 +18,7 @@ export default function HomeScreen() {
         renderItem={({ item }) => <DayListItem day={item} />}
       />
 
-      <StatusBar style="auto" />
+      <StatusBar style="dark" />
     </View>
   );
 }
