@@ -8,7 +8,7 @@ import {
   Gesture,
   GestureDetector,
 } from "react-native-gesture-handler";
-import Animated, { FadeInRight, FadeOutLeft } from "react-native-reanimated";
+import Animated, { FadeInRight } from "react-native-reanimated";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 const onboardingSteps = [
@@ -29,7 +29,7 @@ const onboardingSteps = [
   },
 ];
 
-const Onboarding = () => {
+const OnboardingScreen = () => {
   const [screenIndex, setScreenIndex] = useState(0);
 
   const data = onboardingSteps[screenIndex];
@@ -65,9 +65,9 @@ const Onboarding = () => {
   return (
     <SafeAreaProvider style={styles.page}>
       <StatusBar style="light" />
+      <Stack.Screen options={{ headerShown: false }} />
       <GestureDetector gesture={composed}>
         <View style={styles.pageContent} key={screenIndex}>
-          <Stack.Screen options={{ headerShown: false }} />
           <View style={styles.stepIndicatorContainer}>
             {onboardingSteps.map((step, index) => (
               <View
@@ -114,7 +114,7 @@ const Onboarding = () => {
   );
 };
 
-export default Onboarding;
+export default OnboardingScreen;
 
 const styles = StyleSheet.create({
   page: {
